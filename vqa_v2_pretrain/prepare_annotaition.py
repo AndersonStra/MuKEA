@@ -2,10 +2,10 @@ import json
 
 
 dic = {}
-with open('/data2/yjgroup/dy/kb-vqa/data/vqav2/v2_OpenEnded_mscoco_test2015_questions.json') as f:
+with open('/kb-vqa/data/vqav2/v2_OpenEnded_mscoco_test2015_questions.json') as f:
     a = json.load(f)
 ques_list = a['questions']
-with open('/data2/yjgroup/dy/kb-vqa/data/vqav2/v2_mscoco_val2014_annotations.json') as f:
+with open('/kb-vqa/data/vqav2/v2_mscoco_val2014_annotations.json') as f:
     b = json.load(f)
 annotation = b['annotations']
 
@@ -21,5 +21,5 @@ for q_a in zip(ques_list, ques_list):
     #     multi_list.append(i['answer'])
     item = {'question': question, 'image_id': image_id, 'answer': ans,'multi_answers': multi_list}
     dic[q_id] = item
-with open('/data2/yjgroup/dy/kb-vqa/data/vqa_test.json','w') as f:
+with open('/kb-vqa/data/vqa_test.json','w') as f:
     json.dump(dic, f, indent=4)
