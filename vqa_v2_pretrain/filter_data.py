@@ -1,6 +1,6 @@
 import json
 
-with open('/data2/yjgroup/dy/kb-vqa/data/vqa_train.json','r') as f:
+with open('/kb-vqa/data/vqa_train.json','r') as f:
     qa_raw = json.load(f)
 
 for qid, item in list(qa_raw.items()):
@@ -15,5 +15,5 @@ for qid, item in list(qa_raw.items()):
                 break
 
 print(len(qa_raw))
-with open('/data2/yjgroup/dy/kb-vqa/data/vqa_train_filter.json','w') as f:
+with open('/kb-vqa/data/vqa_train_filter.json','w') as f:
     json.dump(qa_raw, f, indent=4)
