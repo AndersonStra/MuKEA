@@ -1,6 +1,5 @@
 #!user/bin/env python
 # -*- coding:utf-8 -*-
-# author: DingYang time:2021/1/6
 import argparse
 import json
 import os
