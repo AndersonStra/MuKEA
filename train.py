@@ -39,8 +39,6 @@ from model import KgPreModel, tokenizer
 
 torch.multiprocessing.set_sharing_strategy('file_system')
 
-# with open('/data/dy/GRUC/pr_okvqa_memory/MUTAN/ans_dic_1ans.pickle', 'rb') as f:
-#     b_dic = pickle.load(f)
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
@@ -126,7 +124,7 @@ def train():
     optimizer = optim.AdamW(model.parameters(), lr=1e-4)
     # scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.95)
     # criterion = nn.BCEWithLogitsLoss()
-    # criterion_cls = nn.CrossEntropyLoss()
+    criterion_cls = nn.CrossEntropyLoss()
     criterion_mse = nn.MSELoss()
     criterion_graph = ContrastiveLoss(measure='dot', margin=1.0, max_violation=False)
 
@@ -201,7 +199,7 @@ def train():
             optimizer.zero_grad()
 
             most_id_tensor = most_id_tensor.squeeze()
-
+            loss_cl = criterion_cls(anchor, most_id_tensor)
             if args.dataset == 'okvqa':
                 loss = 0
                 # loss = loss + loss_cl
