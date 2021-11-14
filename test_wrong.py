@@ -1,6 +1,5 @@
 #!user/bin/env python
 # -*- coding:utf-8 -*-
-# author: DingYang time:2021/1/20
 from dataset import vocab_num, my_collate
 from dataset_val import KgDatasetVal
 from dataset import KgDataset
