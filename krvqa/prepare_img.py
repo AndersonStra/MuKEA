@@ -10,20 +10,20 @@ image_dic = {}
 feature_dic = {}
 
 
-feature_base = '/data2/yjgroup/dy/kb-vqa/data/kr-vqa/no_coco_feature'
-image_base = '/data2/yjgroup/qxy/lxmert/data_qxy/Visual_Genome'
-with open('/data2/yjgroup/dy/kb-vqa/data/kr-vqa/image_data.json','r') as f:
+feature_base = '/kb-vqa/data/kr-vqa/no_coco_feature'
+image_base = '/lxmert/data_qxy/Visual_Genome'
+with open('/kb-vqa/data/kr-vqa/image_data.json','r') as f:
     image_data = json.load(f)
 for item in image_data:
     image_id = item['image_id']
     image_dic[image_id] = item
 
-with open('/data2/yjgroup/dy/kb-vqa/data/kr-vqa/krvqa_test.json','r') as f:
+with open('/kb-vqa/data/kr-vqa/krvqa_test.json','r') as f:
     test = json.load(f)
 
-with open('/data2/yjgroup/dy/kb-vqa/data/vqa_img_feature_train.pickle', 'rb') as f:
+with open('/kb-vqa/data/vqa_img_feature_train.pickle', 'rb') as f:
     pretrain_feature = pickle.load(f)
-with open('/data2/yjgroup/dy/kb-vqa/data/vqa_img_feature_val(all).pickle', 'rb') as f:
+with open('/kb-vqa/data/vqa_img_feature_val(all).pickle', 'rb') as f:
     pretrain_feature_val = pickle.load(f)
 
 for qid, i in tqdm(test.items()):
@@ -58,7 +58,7 @@ for qid, i in tqdm(test.items()):
                                           feature_bbox[:, 2:] / w_h), axis=1)
         feature_dic[image_id] = {'feats': feature_36, 'sp_feats': spatial_feature}
 
-with open('/data2/yjgroup/dy/kb-vqa/data/kr-vqa/krvqa_img_feature_test.pickle', 'wb') as f:
+with open('/kb-vqa/data/kr-vqa/krvqa_img_feature_test.pickle', 'wb') as f:
     pickle.dump(feature_dic, f)
 
 
