@@ -14,19 +14,19 @@ from config import args
 from random import sample
 
 if args.dataset == 'fvqa':
-    with open('/data2/yjgroup/dy/kb-vqa/data/fvqa/split2/fvqa_test.json','r') as f:
+    with open('/kb-vqa/data/fvqa/split2/fvqa_test.json','r') as f:
         val_row = json.load(f)
-    with open('/data2/yjgroup/dy/kb-vqa/data/fvqa/fvqa_img_feature.pickle', 'rb') as f:
+    with open('/kb-vqa/data/fvqa/fvqa_img_feature.pickle', 'rb') as f:
         pretrain_feature = pickle.load(f)
 elif args.dataset == 'krvqa':
-    with open('/data2/yjgroup/dy/kb-vqa/data/kr-vqa/krvqa_test.json','r') as f:
+    with open('/kb-vqa/data/kr-vqa/krvqa_test.json','r') as f:
         val_row = json.load(f)
-    with open('/data2/yjgroup/dy/kb-vqa/data/kr-vqa/krvqa_img_feature_test.pickle', 'rb') as f:
+    with open('/dy/kb-vqa/data/kr-vqa/krvqa_img_feature_test.pickle', 'rb') as f:
         pretrain_feature = pickle.load(f)
 elif args.dataset == 'vqav2':
-    with open('/data2/yjgroup/dy/kb-vqa/data/vqa_img_feature_test_dev.pickle', 'rb') as f:
+    with open('/dy/kb-vqa/data/vqa_img_feature_test_dev.pickle', 'rb') as f:
         pretrain_feature = pickle.load(f)
-    with open('/data2/yjgroup/dy/kb-vqa/data/vqa_test.json','r') as f:
+    with open('/dy/kb-vqa/data/vqa_test.json','r') as f:
         val_row = json.load(f)
 
 def plural(word):
