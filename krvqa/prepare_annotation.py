@@ -5,9 +5,9 @@ train={}
 val={}
 test={}
 
-with open('/data2/yjgroup/dy/kb-vqa/data/kr-vqa/question_answer_reason.json','r') as f:
+with open('/kb-vqa/data/kr-vqa/question_answer_reason.json','r') as f:
     row = json.load(f)
-with open('/data2/yjgroup/dy/kb-vqa/data/kr-vqa/splits.json','r') as f:
+with open('/kb-vqa/data/kr-vqa/splits.json','r') as f:
     split = json.load(f)
 
 for i in row:
@@ -25,11 +25,11 @@ for i in row:
     else:
         print('error')
 
-with open('/data2/yjgroup/dy/kb-vqa/data/kr-vqa/krvqa_train.json','w') as f:
+with open('/kb-vqa/data/kr-vqa/krvqa_train.json','w') as f:
     json.dump(train, f, indent=4)
-with open('/data2/yjgroup/dy/kb-vqa/data/kr-vqa/krvqa_val.json','w') as f:
+with open('/kb-vqa/data/kr-vqa/krvqa_val.json','w') as f:
     json.dump(val, f, indent=4)
-with open('/data2/yjgroup/dy/kb-vqa/data/kr-vqa/krvqa_test.json','w') as f:
+with open('/kb-vqa/data/kr-vqa/krvqa_test.json','w') as f:
     json.dump(test, f, indent=4)
 print(len(train),len(val),len(test))
 
