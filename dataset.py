@@ -27,6 +27,22 @@ if args.dataset == 'krvqa':
     else:
         with open('/kb-vqa/data/kr-vqa/krvqa-ans_dic.pickle', 'rb') as f:
             a_dic = pickle.load(f)
+elif args.dataset == 'okvqa':
+    with open('/kb-vqa/data/vqa_img_feature_train.pickle', 'rb') as f:
+        pretrain_feature = pickle.load(f)
+    if args.pretrain:
+        with open('/kb-vqa/data/vqa_train_filter.json','r') as f:
+            vqa2 = json.load(f)
+        train_row = vqa2
+    else:
+        with open('/kb-vqa/data/okvqa_train.json','r') as f:
+            train_row = json.load(f)
+    if args.accumulate:
+        with open('/kb-vqa/data/pretrain_dic_all_filter.pickle', 'rb') as f:
+            a_dic = pickle.load(f)
+    else:
+        with open('/kb-vqa/data/ans_dic_raw.pickle', 'rb') as f:
+            a_dic = pickle.load(f)
 elif args.dataset == 'vqav2':
     with open('/kb-vqa/data/vqa_img_feature_train.pickle', 'rb') as f:
         pretrain_feature = pickle.load(f)
