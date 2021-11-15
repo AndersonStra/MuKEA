@@ -93,7 +93,7 @@ def cal_acc_multi(ground_truth, preds, return_id = False):
 
 
 def train():
-    if args.dataset != 'pretrain':
+    if not args.pretrain:
         train_dataset = KgDataset(val=False)
         train_dataloader = DataLoader(dataset=train_dataset, batch_size=args.batch_size, shuffle=True,
                                       num_workers=4, collate_fn=my_collate)
@@ -101,7 +101,7 @@ def train():
             test_dataset = KgDatasetVal(val=False)
             test_dataloader = DataLoader(dataset=test_dataset, batch_size=args.batch_size, shuffle=False,
                                          num_workers=4, collate_fn=my_collate)
-    elif args.dataset == 'pretrain':
+    else:
         train_dataset = PretrainDataset(val=False)
         # train_sampler = torch.utils.data.distributed.DistributedSampler(train_dataset)
         train_dataloader = DataLoader(dataset=train_dataset, batch_size=args.batch_size,
