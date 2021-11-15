@@ -117,8 +117,8 @@ class KgPreModel(nn.Module):
         return most.squeeze()
 
     def cal_sim(self, anchor, most):
-        anchor = self.linear_classifytask(anchor)  # b * 1024
-        most = self.linear_classifytask(most)     # vocab_num * 1024
+        #anchor = self.linear_classifytask(anchor)  # b * 1024
+        #most = self.linear_classifytask(most)     # vocab_num * 1024
         sim_out = anchor.mm(most.t())
 
         return sim_out.squeeze()
