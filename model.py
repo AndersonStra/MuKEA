@@ -13,7 +13,7 @@ from prepare.gumbel_softmax import gumbel_softmax
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 config = LxmertConfig.from_pretrained('unc-nlp/lxmert-base-uncased', output_attentions=True)
 tokenizer = LxmertTokenizer.from_pretrained('unc-nlp/lxmert-base-uncased')
-model = LxmertModel(config=config)    #.from_pretrained('./premodel', config=config)
+model = LxmertModel.from_pretrained('./premodel', config=config)
 # model.resize_token_embeddings(len(tokenizer))
 config.return_dict=True
 
