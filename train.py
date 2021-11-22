@@ -89,7 +89,23 @@ def cal_acc_multi(ground_truth, preds, return_id = False):
         return acc_num / all_num, ids
     else:
         return acc_num / all_num
-
+   
+def cal_acc(ground_truth, preds, return_id = False):
+    all_num = len(ground_truth)
+    acc_num = 0
+    ids = []
+    temp = []
+    for i, answer_id in enumerate(ground_truth):
+        pred = preds[i]
+        ids.append([i, int(pred)])
+        cnt = 0
+        for aid in answer_id:
+            if pred == aid:
+                acc_num += 1
+    if return_id:
+        return acc_num / all_num, ids
+    else:
+        return acc_num / all_num
 
 
 def train():
@@ -237,7 +253,11 @@ def train():
                     train_answers_trip.append(most_id[i])
 
         # train_acc_1 = cal_acc_old(train_answers, train_preds)
-        if True:
+        if args.dataset == 'krvqa':
+            train_acc_1_trip = cal_acc(train_answers_trip, train_preds_trip)
+            print('epoch %d train_loss = %.1f, acc_trip = %.4f' % (epoch, loss_stat,
+                                                                          train_acc_1_trip))
+        else:
             # train_acc_1_ce = cal_acc_old(train_answers, train_preds)
             train_acc_1_trip = cal_acc_multi(train_answers_trip, train_preds_trip)
             print('epoch %d train_loss = %.1f, acc_trip = %.4f' % (epoch, loss_stat,
@@ -292,7 +312,11 @@ def train():
                         answers_trip.append(most_id[i])
 
             # acc_1 = cal_acc_old(answers, preds)
-            if True:
+            if args.dataset == 'krvqa':
+                acc_1_trip = cal_acc(answers_trip, preds_trip)
+                print('epoch %d ,  acc_trip = %.4f' % (
+                    epoch, acc_1_trip))
+            else:
                 acc_1_trip = cal_acc_multi(answers_trip, preds_trip)
                 print('epoch %d ,  acc_trip = %.4f' % (
                     epoch, acc_1_trip))
