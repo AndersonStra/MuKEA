@@ -11,7 +11,14 @@ transformers == 3.5.0
 mkdir model_save_dir
 ```
 
-2. Prepare data
+2. Preprocessing   
+```
+$ makedir kb-vqa
+$ cd kb-vqa
+$ makedir data
+$ cd data
+```
+follow `prepare_annotation.py` and `prepare_img.py` to process the data
 
 ### Pre-training on VQAv2
 ```
