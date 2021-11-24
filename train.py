@@ -213,11 +213,11 @@ def train():
             anchor = F.normalize(anchor, dim=1, p=2)
             optimizer.zero_grad()
 
-            most_id_tensor = most_id_tensor.squeeze()
-            loss_cl = criterion_cls(anchor, most_id_tensor)
+#             most_id_tensor = most_id_tensor[:,0].squeeze()
+#             loss_cl = criterion_cls(cls, most_id_tensor)
             if args.dataset == 'okvqa':
                 loss = 0
-                loss = loss + loss_cl
+#                 loss = loss + loss_cl
                 for i in range(10):
                     most_i = most[:,i,:]
                     loss_mse = criterion_mse(anchor, most_i)
@@ -226,7 +226,7 @@ def train():
             else:
                 loss_mse = criterion_mse(anchor, most)
                 loss_graph = criterion_graph(anchor, most)
-                loss = loss_mse + loss_graph + loss_cl
+                loss = loss_mse + loss_graph 
 
             loss_stat = loss.item()
             loss.backward()
