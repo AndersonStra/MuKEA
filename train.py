@@ -203,21 +203,21 @@ def train():
             # neg = torch.tensor(batch_data['neg']).to(device)
 
 
-            # if args.embedding:
-            #     if torch.cuda.device_count() > 1:
-            #         answer_candidate_tensor_train = model.module.decode_tail(answer_candidate_tensor)
-            #         cls = model.module.cal_sim(anchor, answer_candidate_tensor_train)
-            #     else:
-            #         answer_candidate_tensor_train = model.decode_tail(answer_candidate_tensor)
-            #         cls = model.cal_sim(anchor, answer_candidate_tensor_train)
+            if args.embedding:
+                if torch.cuda.device_count() > 1:
+                    answer_candidate_tensor_train = model.module.decode_tail(answer_candidate_tensor)
+                    cls = model.module.cal_sim(anchor, answer_candidate_tensor_train)
+                else:
+                    answer_candidate_tensor_train = model.decode_tail(answer_candidate_tensor)
+                    cls = model.cal_sim(anchor, answer_candidate_tensor_train)
             anchor = F.normalize(anchor, dim=1, p=2)
             optimizer.zero_grad()
 
-#             most_id_tensor = most_id_tensor[:,0].squeeze()
-#             loss_cl = criterion_cls(cls, most_id_tensor)
+            most_id_tensor = most_id_tensor[:,0].squeeze()
+            loss_cl = criterion_cls(cls, most_id_tensor)
             if args.dataset == 'okvqa':
                 loss = 0
-#                 loss = loss + loss_cl
+                loss = loss + loss_cl
                 for i in range(10):
                     most_i = most[:,i,:]
                     loss_mse = criterion_mse(anchor, most_i)
@@ -226,7 +226,7 @@ def train():
             else:
                 loss_mse = criterion_mse(anchor, most)
                 loss_graph = criterion_graph(anchor, most)
-                loss = loss_mse + loss_graph 
+                loss = loss_mse + loss_graph + loss_cl
 
             loss_stat = loss.item()
             loss.backward()
