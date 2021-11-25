@@ -5,7 +5,7 @@ import collections
 word_counts = collections.Counter()
 with open('/kb-vqa/data/vqa_train.json') as f:
     vqa2 = json.load(f)
-# with open('/data2/yjgroup/dy/kb-vqa/data/vqa_val.json') as f:
+# with open('/kb-vqa/data/vqa_val.json') as f:
 #     vqa2_val = json.load(f)
 # vqa2.update(vqa2_val)
 with open('/kb-vqa/data/fvqa/fvqa-ans_dic.pickle', 'rb') as f:
