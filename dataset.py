@@ -121,7 +121,7 @@ for qid, item in train_row.items():
     # else:
     #     most_ans_id = a_dic[most_ans]
 
-    if args.dataset == 'okvqa':
+    if args.dataset == 'okvqa' and not args.pretrain:
         # item['label'].extend(question_split)
         objects.append(item['label'])
 
