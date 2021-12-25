@@ -69,7 +69,7 @@ def cal_acc_multi(ground_truth, preds, return_id = False):
     temp = []
     for i, answer_id in enumerate(ground_truth):
         pred = preds[i]
-        ids.append([i, int(pred)])
+        # ids.append([i, int(pred)])
         cnt = 0
         for aid in answer_id:
             if pred == aid:
