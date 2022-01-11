@@ -12,13 +12,15 @@ from model import tokenizer
 from random import sample
 
 if args.dataset == 'krvqa':
-    with open('/kb-vqa/data/kr-vqa/krvqa_img_feature_train.pickle', 'rb') as f:
-        pretrain_feature = pickle.load(f)
     if args.pretrain:
         with open('/kb-vqa/data/vqa_train_filter.json','r') as f:
             vqa2 = json.load(f)
         train_row = vqa2
+        with open('/kb-vqa/data/vqa_img_feature_train.pickle', 'rb') as f:
+            pretrain_feature = pickle.load(f)
     else:
+        with open('/kb-vqa/data/kr-vqa/krvqa_img_feature_train.pickle', 'rb') as f:
+            pretrain_feature = pickle.load(f)
         with open('/kb-vqa/data/kr-vqa/krvqa_train.json','r') as f:
             train_row = json.load(f)
     if args.accumulate:
