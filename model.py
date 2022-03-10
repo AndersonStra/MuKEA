@@ -25,10 +25,9 @@ class KgPreModel(nn.Module):
         super(KgPreModel, self).__init__()
         self.vocab_num = vocab_num
         self.PreLayer = model
-        # self.linear = nn.Sequential(nn.Linear(768, 1024), nn.ReLU(), nn.Linear(1024, 1))  # 有的模型有这个参数
         self.linear_vision = nn.Sequential(nn.Linear(768, 1024), nn.ReLU(), nn.Linear(1024, 300))
         self.linear_300 = nn.Sequential(nn.Linear(768, 1024), nn.ReLU(), nn.Linear(1024, 300))
-        self.linear_classifytask = nn.Linear(300, 1024)   # 有的模型有这个参数
+        self.linear_classifytask = nn.Linear(300, 1024)  
         self.tail_decode = nn.Embedding(vocab_num, 300)
         init.uniform_(self.tail_decode.weight.data)
         # self.sa = MultiHeadAttention(8, 768)
