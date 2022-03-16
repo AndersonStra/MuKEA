@@ -217,7 +217,6 @@ def train():
             loss_cl = criterion_cls(cls, most_id_tensor)
             if args.dataset == 'okvqa':
                 loss = 0
-                loss = loss + loss_cl
                 for i in range(10):
                     most_i = most[:,i,:]
                     loss_mse = criterion_mse(anchor, most_i)
@@ -226,7 +225,7 @@ def train():
             else:
                 loss_mse = criterion_mse(anchor, most)
                 loss_graph = criterion_graph(anchor, most)
-                loss = loss_mse + loss_graph + loss_cl
+                loss = loss_mse + loss_graph
 
             loss_stat = loss.item()
             loss.backward()
