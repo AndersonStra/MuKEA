@@ -5,7 +5,7 @@ This code implements a multimodal knowledge extraction model. The model generate
 - Knowledge-based vision-language tasks, such as image caption, referring expression comprehension, vision-language navigation etc.
 - Explainable deep learning, especially in the legal, medical fields.
 
-This approach was used to achieve state-of-the-art knowledge-based visual question answering performance on OKVQA (42.59% overall accuracy) and KRVQA (27.38% overall accuracy), as described in:
+This approach was used to achieve state-of-the-art knowledge-based visual question answering performance on [OKVQA](https://arxiv.org/abs/1906.00067) (42.59% overall accuracy) and [KRVQA](https://arxiv.org/pdf/2012.07192.pdf) (27.38% overall accuracy), as described in:
 
 (paper link)
 
