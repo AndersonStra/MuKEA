@@ -9,7 +9,7 @@ This approach was used to achieve state-of-the-art knowledge-based visual questi
 
 (paper link)
 
-![MuKEA](model.png "model")
+[![MuKEA]("model")](https://github.com/AndersonStra/MuKEA/blob/main/model.PNG)
 
 ## Requirement
 Pytorch == 1.6.0          
