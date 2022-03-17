@@ -34,8 +34,7 @@ follow `prepare_annotation.py` and `prepare_img.py` to process the data
 ### Pre-training on VQAv2
 ```
 python train.py --embedding --model_dir model_save_dir --dataset okvqa/krvqa --pretrain --accumulate --validate
-```
-The parameter of dataset only determines the dataset to test and does not affect the result of pre-training         
+```       
 
 ### Fine-tuning     
 ```
