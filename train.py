@@ -23,8 +23,6 @@ from contrastive_loss import ContrastiveLoss, l2_sim
 from dataset import KgDataset, my_collate_pretrain, PretrainDataset, my_collate
 from dataset import vocab_num
 from dataset_val import KgDatasetVal
-# from fvqa.fvqa_testdataset import FvqaDatasetVal
-# from fvqa.fvqa_traindataset import FvqaDataset, my_collate_fvqa, cal_acc_fvqa
 from model import KgPreModel, tokenizer
 
 
@@ -129,8 +127,6 @@ def train():
                                          num_workers=8, collate_fn=my_collate, shuffle=False)#sampler=test_sampler)
     model = KgPreModel(vocab_num)
     model = model.to(device)
-    # total_params = sum(p.numel() for p in model.parameters())
-    # print(f'{total_params:,} total parameters.')
     if torch.cuda.device_count() > 1:
         print("Let's use", torch.cuda.device_count(), "GPUs!")
         model = torch.nn.DataParallel(model)
@@ -138,7 +134,6 @@ def train():
 
     optimizer = optim.AdamW(model.parameters(), lr=1e-4)
     # scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.95)
-    # criterion = nn.BCEWithLogitsLoss()
     criterion_cls = nn.CrossEntropyLoss()
     criterion_mse = nn.MSELoss()
     criterion_graph = ContrastiveLoss(measure='dot', margin=1.0, max_violation=False)
@@ -164,10 +159,6 @@ def train():
     #     answer_candidate_tensor = F.normalize(answer_candidate_tensor, dim=1, p=2)
     #model.module.load_state_dict(torch.load('contrasloss_check_v3/model_for_epoch_4.pth'))
     for epoch in range(start_epoch, args.num_epochs):
-        # if epoch < 5:
-        #     model.freeze()
-        # else:
-        #     model.unfreeze()
         train_answers = []
         train_preds = []
         train_preds_trip = []
@@ -181,8 +172,6 @@ def train():
             attention_mask = source_seq['attention_mask'].to(device)
             token_type_ids = source_seq['token_type_ids'].to(device)
             spatial_feature = torch.tensor(batch_data['spatial']).float().to(device)
-            # target_true = torch.tensor(batch_data['answers_list']).to(device)
-            # target_id = batch_data['answer_id']
             most_id = batch_data['mostid']
             most_id_tensor = torch.tensor(most_id).long().cuda()
 
@@ -200,8 +189,6 @@ def train():
             else:
                 most = torch.tensor(batch_data['most']).float().to(device)
             most = F.normalize(most, dim=-1, p=2)
-            # neg = torch.tensor(batch_data['neg']).to(device)
-
 
             if args.embedding:
                 if torch.cuda.device_count() > 1:
