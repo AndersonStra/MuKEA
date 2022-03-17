@@ -65,7 +65,7 @@ for qid, item in val_row.items():
     questions.append(question_clean)
     if args.dataset == 'okvqa' or args.dataset == 'vqav2':
         answers.append(item['multi_answers'])
-        m_ans_id = [a_dic.get(i, 0) for i in item['multi_answers']]
+        m_ans_id = [a_dic.get(i, -1) for i in item['multi_answers']]
         most_answer_ids.append(m_ans_id)
         # most_answer.append(answer_embedding[m_ans_id[0]])
         # item['label'].extend(question_split)
