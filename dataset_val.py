@@ -52,9 +52,6 @@ most_answer = []
 most_answer_ids = []
 neg_answer = []
 
-# with open('1_wrong.json') as f:
-#     train_row = json.load(f)
-n = 0
 
 
 for qid, item in val_row.items():
@@ -76,24 +73,7 @@ for qid, item in val_row.items():
         most_ans_id = a_dic.get(item['answer'], 0)
         most_answer_ids.append([most_ans_id])
 
-    #if not args.inference:
-#         answer_id = []
-#         answer_list = torch.zeros(len(item['label'])).long()
-#         for i, a in enumerate(item['label']):
-#             if a == label[qid] or a == plural(label[qid]) or plural(a) == label[qid] or a[:-1] == label[qid]:
-#                 answer_list[i] = 1
-#                 answer_id.append(i)
-#         if len(answer_id) == 0:
-#             print(qid)
-#             n += 1
-#         answer_ids.append(answer_id)
-#         answers_lists.append(answer_list)
-# pickle_dic = {}
-# pickle_dic['ids'] = answer_ids
-# pickle_dic['ids_list'] = answers_lists
-# with open('krisp_val_answer_generate_v1.pickle','wb') as f:
-#     pickle.dump(pickle_dic, f)
-# if not args.inference:
+
 print(len(qids))
 
 
