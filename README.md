@@ -7,7 +7,7 @@ This code implements a multimodal knowledge extraction model. The model generate
 
 This approach was used to achieve state-of-the-art knowledge-based visual question answering performance on [OKVQA](https://arxiv.org/abs/1906.00067) (42.59% overall accuracy) and [KRVQA](https://arxiv.org/pdf/2012.07192.pdf) (27.38% overall accuracy), as described in:
 
-(paper link)
+[paper link](http://arxiv.org/abs/2203.09138)
 
 ![MuKEA](https://github.com/AndersonStra/MuKEA/blob/main/model.PNG)
 
@@ -44,4 +44,14 @@ python train.py --embedding --model_dir model_save_dir --dataset okvqa/krvqa --l
 ### w/o pre-training
 ```
 python train.py --embedding --model_dir model_save_dir --dataset okvqa/krvqa --validate
+```
+
+### Bibtex
+```
+@inproceedings{Ding2022mukea,
+  title={MuKEA: Multimodal Knowledge Extraction and Accumulation for Knowledge-based Visual Question Answering},
+  author={Yang Ding and Jing Yu and Bang Liu and Yue Hu and Mingxin Cui and Qi Wug},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2022}
+}
 ```
