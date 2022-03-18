@@ -24,8 +24,6 @@ mkdir model_save_dir
 
 2. Preprocessing   
 ```
-$ makedir kb-vqa
-$ cd kb-vqa
 $ makedir data
 $ cd data
 ```
