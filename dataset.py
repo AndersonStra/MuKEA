@@ -123,31 +123,6 @@ for qid, item in train_row.items():
     # else:
     #     most_ans_id = a_dic[most_ans]
 
-    if args.dataset == 'okvqa' and not args.pretrain:
-        # item['label'].extend(question_split)
-        objects.append(item['label'])
-
-# head entity supervision(abandon)
-    # if not args.inference:
-    # if True:
-#         answer_id = []
-#         answer_list = torch.zeros(len(item['label'])).long()
-#         for i, a in enumerate(item['label']):
-#             if a == label[qid] or a == plural(label[qid]) or plural(a) == label[qid] or a[:-1] == label[qid]:
-#                 answer_list[i] = 1
-#                 answer_id.append(i)
-#         if len(answer_id) == 0:
-#             print(qid)
-#             n += 1
-#         answer_ids.append(answer_id)
-#         answers_lists.append(answer_list)
-# pickle_dic = {}
-# pickle_dic['ids'] = answer_ids
-# pickle_dic['ids_list'] = answers_lists
-# with open('krisp_train_answer_generate_v1.pickle','wb') as f:
-#     pickle.dump(pickle_dic, f)
-# if not args.inference:
-
 print(len(qids))
 
 
