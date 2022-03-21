@@ -13,48 +13,48 @@ from random import sample
 
 if args.dataset == 'krvqa':
     if args.pretrain:
-        with open('/kb-vqa/data/vqa_train_filter.json','r') as f:
+        with open('data/vqa_train_filter.json','r') as f:
             vqa2 = json.load(f)
         train_row = vqa2
-        with open('/kb-vqa/data/vqa_img_feature_train.pickle', 'rb') as f:
+        with open('data/vqa_img_feature_train.pickle', 'rb') as f:
             pretrain_feature = pickle.load(f)
     else:
-        with open('/kb-vqa/data/kr-vqa/krvqa_img_feature_train.pickle', 'rb') as f:
+        with open('data/kr-vqa/krvqa_img_feature_train.pickle', 'rb') as f:
             pretrain_feature = pickle.load(f)
-        with open('/kb-vqa/data/kr-vqa/krvqa_train.json','r') as f:
+        with open('data/kr-vqa/krvqa_train.json','r') as f:
             train_row = json.load(f)
     if args.accumulate:
-        with open('/kb-vqa/data/krvqa-pretrain_dic_all_filter.pickle', 'rb') as f:
+        with open('data/krvqa-pretrain_dic_all_filter.pickle', 'rb') as f:
             a_dic = pickle.load(f)
     else:
-        with open('/kb-vqa/data/kr-vqa/krvqa-ans_dic.pickle', 'rb') as f:
+        with open('data/kr-vqa/krvqa-ans_dic.pickle', 'rb') as f:
             a_dic = pickle.load(f)
 elif args.dataset == 'okvqa':
-    with open('/kb-vqa/data/vqa_img_feature_train.pickle', 'rb') as f:
+    with open('data/vqa_img_feature_train.pickle', 'rb') as f:
         pretrain_feature = pickle.load(f)
     if args.pretrain:
-        with open('/kb-vqa/data/vqa_train_filter.json','r') as f:
+        with open('data/vqa_train_filter.json','r') as f:
             vqa2 = json.load(f)
         train_row = vqa2
     else:
-        with open('/kb-vqa/data/okvqa_train.json','r') as f:
+        with open('data/okvqa_train.json','r') as f:
             train_row = json.load(f)
     if args.accumulate:
-        with open('/kb-vqa/data/pretrain_dic_all_filter.pickle', 'rb') as f:
+        with open('data/pretrain_dic_all_filter.pickle', 'rb') as f:
             a_dic = pickle.load(f)
     else:
-        with open('/kb-vqa/data/ans_dic_raw.pickle', 'rb') as f:
+        with open('data/ans_dic_raw.pickle', 'rb') as f:
             a_dic = pickle.load(f)
 elif args.dataset == 'vqav2':
-    with open('/kb-vqa/data/vqa_img_feature_train.pickle', 'rb') as f:
+    with open('data/vqa_img_feature_train.pickle', 'rb') as f:
         pretrain_feature = pickle.load(f)
-    with open('/kb-vqa/data/vqa_train.json','r') as f:
+    with open('data/vqa_train.json','r') as f:
         train_row = json.load(f)
-    with open('/kb-vqa/data/vqav2/vqav2_dic_all.pickle', 'rb') as f:
+    with open('data/vqav2/vqav2_dic_all.pickle', 'rb') as f:
         a_dic = pickle.load(f)
-    with open('/kb-vqa/data/vqa_img_feature_val_all.pickle', 'rb') as f:
+    with open('data/vqa_img_feature_val_all.pickle', 'rb') as f:
         pretrain_feature_val = pickle.load(f)
-    with open('/kb-vqa/data/vqa_val.json','r') as f:
+    with open('data/vqa_val.json','r') as f:
         val_row = json.load(f)
     pretrain_feature.update(pretrain_feature_val)
     train_row.update(val_row)
