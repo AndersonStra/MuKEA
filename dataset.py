@@ -91,20 +91,12 @@ n = 0
 
 
 for qid, item in train_row.items():
-
-    #这里为了词表限制：
-    if item['answer'] not in a_dic.keys():
-        continue
-
     img_id = str(item['image_id'])
     image_ids.append(img_id)
     qids.append(qid)
     question_clean = item['question']# + answer_sentence
     questions.append(question_clean)
-    # ans = collections.Counter(item['multi_answers'])
-    # if 'f' in qid:
-    #     temp_feature.append(pretrain_feature[img_id]['feats'])
-    #     temp_sp_feature.append(pretrain_feature[img_id]['sp_feats'])
+ 
 
 
     # multi-answer
