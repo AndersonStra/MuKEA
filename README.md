@@ -27,9 +27,19 @@ mkdir model_save_dir
 $ mkdir data
 $ cd data
 ```
-follow `prepare_annotation.py` and `prepare_img.py` to process the data or download annotation from 
+follow `prepare_img.py` to process the image feature and download annotation from 
 
-[google drive]()
+[google drive](https://drive.google.com/file/d/1KzYHHDchRp1XYUPZbBPHsgCE5O6wzbpm/view?usp=sharing)
+
+The image features are provided by and downloaded from the original bottom-up attention' [repo](https://github.com/peteanderson80/bottom-up-attention). We reorganized the storage structure of features as:
+
+```
+vqa_img_feature_train.pickle{
+"image_id":{'feats': features, 'sp_feats': spatial features}
+}
+```
+
+The pre-trained LXMERT model expects these spacial features to be normalized bounding boxes on a scale of 0 to 1
 
 ### Pre-training on VQAv2
 ```
