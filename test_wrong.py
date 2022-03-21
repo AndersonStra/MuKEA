@@ -120,9 +120,7 @@ def test():
                 attention_mask = source_seq['attention_mask'].to(device)
                 token_type_ids = source_seq['token_type_ids'].to(device)
                 spatial_feature = torch.tensor(batch_data['spatial']).float().to(device)
-                # target_true = torch.tensor(batch_data['answers_list']).to(device)
-                # target_id = batch_data['answer_id']
-                # most = torch.tensor(batch_data['most']).to(device)
+        
                 most_id = batch_data['mostid']
 
                 anchor = model(input_id, attention_mask, token_type_ids, visual_faetures, spatial_feature)
@@ -150,8 +148,6 @@ def test():
         acc_1_trip, ids = cal_acc_multi(answers_trip, preds_trip, return_id=True)
         print('epoch %d , acc = %f' % (
             epoch, acc_1_trip))
-        with open('./online_test3500/vqa_onlinetest%d.json' % epoch, 'w') as f:
-            json.dump(ids, f, indent=4)
         # np.save('best_relation_embedding.npy', embeddings)
 
         # 可视化分析代码
