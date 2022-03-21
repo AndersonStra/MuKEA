@@ -24,10 +24,12 @@ mkdir model_save_dir
 
 2. Preprocessing   
 ```
-$ makedir data
+$ mkdir data
 $ cd data
 ```
-follow `prepare_annotation.py` and `prepare_img.py` to process the data
+follow `prepare_annotation.py` and `prepare_img.py` to process the data or download annotation from 
+
+[google drive]()
 
 ### Pre-training on VQAv2
 ```
