@@ -14,19 +14,19 @@ from config import args
 from random import sample
 
 if args.dataset == 'krvqa':
-    with open('/kb-vqa/data/kr-vqa/krvqa_test.json','r') as f:
+    with open('data/kr-vqa/krvqa_test.json','r') as f:
         val_row = json.load(f)
-    with open('/kb-vqa/data/kr-vqa/krvqa_img_feature_test.pickle', 'rb') as f:
+    with open('data/kr-vqa/krvqa_img_feature_test.pickle', 'rb') as f:
         pretrain_feature = pickle.load(f)
 elif args.dataset == 'okvqa':
-    with open('/kb-vqa/data/okvqa_val.json','r') as f:
+    with open('data/okvqa_val.json','r') as f:
         val_row = json.load(f)
-    with open('/kb-vqa/data/vqa_img_feature_val.pickle', 'rb') as f:
+    with open('data/vqa_img_feature_val.pickle', 'rb') as f:
         pretrain_feature = pickle.load(f)
 elif args.dataset == 'vqav2':
-    with open('/kb-vqa/data/vqa_img_feature_test_dev.pickle', 'rb') as f:
+    with open('data/vqa_img_feature_test_dev.pickle', 'rb') as f:
         pretrain_feature = pickle.load(f)
-    with open('/kb-vqa/data/vqa_test.json','r') as f:
+    with open('data/vqa_test.json','r') as f:
         val_row = json.load(f)
 
 def plural(word):
