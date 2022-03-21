@@ -70,7 +70,7 @@ for qid, item in val_row.items():
             objects.append(item['label'])
     else:
         answers.append(item['answer'])
-        most_ans_id = a_dic.get(item['answer'], 0)
+        most_ans_id = a_dic.get(item['answer'], -1)
         most_answer_ids.append([most_ans_id])
 
 
