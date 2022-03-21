@@ -43,7 +43,7 @@ elif args.dataset == 'okvqa':
         with open('data/pretrain_dic_all_filter.pickle', 'rb') as f:
             a_dic = pickle.load(f)
     else:
-        with open('data/ans_dic_raw.pickle', 'rb') as f:
+        with open('data/ans_dic.pickle', 'rb') as f:
             a_dic = pickle.load(f)
 elif args.dataset == 'vqav2':
     with open('data/vqa_img_feature_train.pickle', 'rb') as f:
