@@ -29,7 +29,7 @@ $ cd data
 ```
 follow `prepare_img.py` to process the image feature and download annotation from 
 
-[google drive](https://drive.google.com/file/d/1KzYHHDchRp1XYUPZbBPHsgCE5O6wzbpm/view?usp=sharing)
+[google drive](https://drive.google.com/file/d/1YuOUTbK7rged0gopQko5rdQuHKxiW9sv/view?usp=sharing)
 
 The image features are provided by and downloaded from the original bottom-up attention' [repo](https://github.com/peteanderson80/bottom-up-attention). We reorganized the storage structure of features as:
 
