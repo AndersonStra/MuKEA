@@ -7,7 +7,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--pretrain", action="store_true", help='use vqa2.0 or not')
 parser.add_argument('--batch_size', type=int, default=256,
                     help='minibatch size')
-parser.add_argument('--num_epochs', type=int, default=500,
+parser.add_argument('--num_epochs', type=int, default=200,
                     help='number of epochs')
 parser.add_argument('--model_dir', type=str, default='contrasloss_check_v11/',
                     help='model file path')
