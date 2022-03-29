@@ -24,6 +24,7 @@ from dataset import KgDataset, my_collate_pretrain, PretrainDataset, my_collate
 from dataset import vocab_num
 from dataset_val import KgDatasetVal
 from model import KgPreModel, tokenizer
+from transformers import get_linear_schedule_with_warmup
 
 
 # dist.init_process_group(backend='nccl')
@@ -133,7 +134,14 @@ def train():
 
 
     optimizer = optim.AdamW(model.parameters(), lr=1e-4)
-    # scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.95)
+    
+    # '2' is Gpu NUMS 
+    total_steps = (len(train_dataset) // (args.batch_size / 2)) * args.num_epochs \
+        if len(train_dataset) % args.batch_size == 0 \
+        else (len(train_dataset) // (args.batch_size / 2) + 1) * args.num_epochs
+    scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=0.01 * total_steps,
+                                                num_training_steps=total_steps)
+    
     criterion_cls = nn.CrossEntropyLoss()
     criterion_mse = nn.MSELoss()
     criterion_graph = ContrastiveLoss(measure='dot', margin=1.0, max_violation=False)
@@ -217,7 +225,7 @@ def train():
             loss_stat = loss.item()
             loss.backward()
             optimizer.step()
-            # scheduler.step()
+            scheduler.step()
 
             with torch.no_grad():
                 if args.embedding:
