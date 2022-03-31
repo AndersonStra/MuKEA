@@ -74,10 +74,10 @@ def cal_acc_multi(ground_truth, preds, return_id = False):
             if pred == aid:
                 cnt += 1
         if cnt ==1:
-            acc_num += 1/3
+            acc_num += 0.3
             # ids.append([int(pred), 1])
         elif cnt == 2:
-            acc_num += 2/3
+            acc_num += 0.6   
             # ids.append([int(pred), 1])
         elif cnt > 2:
             acc_num += 1
