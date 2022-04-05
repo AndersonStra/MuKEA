@@ -12,7 +12,7 @@ feature_base = '/dataset/coco/features_36/cocobu_att'
 bbox_base = '/dataset/coco/features_36/cocobu_box'
 image_base = '/dataset/coco/images/train2014'
 # image_base = '/datasets/test2015'
-with open('/kb-vqa/data/vqav2/v2_OpenEnded_mscoco_test-dev2015_questions.json') as f:
+with open('/kb-vqa/data/vqav2/v2_OpenEnded_mscoco_train2014_questions.json') as f:
     a = json.load(f)
 ques_list = a['questions']
 for ques in tqdm(ques_list):
