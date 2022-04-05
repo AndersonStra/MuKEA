@@ -10,8 +10,8 @@ from tqdm import tqdm
 feature_dic = {}
 feature_base = '/dataset/coco/features_36/cocobu_att'
 bbox_base = '/dataset/coco/features_36/cocobu_box'
-# image_base = '/dataset/coco/images/val2014'
-image_base = '/datasets/test2015'
+image_base = '/dataset/coco/images/train2014'
+# image_base = '/datasets/test2015'
 with open('/kb-vqa/data/vqav2/v2_OpenEnded_mscoco_test-dev2015_questions.json') as f:
     a = json.load(f)
 ques_list = a['questions']
@@ -42,7 +42,7 @@ for ques in tqdm(ques_list):
         spatial_feature = np.concatenate((feature_bbox[:, :2] / w_h,
                                           feature_bbox[:, 2:] / w_h), axis=1)
         feature_dic[image_id] = {'feats': feature_36, 'sp_feats': spatial_feature}
-with open('/kb-vqa/data/vqa_img_feature_test_dev.pickle','wb') as f:
+with open('/kb-vqa/data/vqa_img_feature_train.pickle','wb') as f:
     pickle.dump(feature_dic, f)
 
 
