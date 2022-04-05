@@ -27,11 +27,20 @@ mkdir model_save_dir
 $ mkdir data
 $ cd data
 ```
-follow [prepare_img.py](https://github.com/AndersonStra/MuKEA/blob/main/vqa_v2_pretrain/prepare_img.py) to process the image feature and download annotation from 
+Download annotation from 
 
 [google drive](https://drive.google.com/file/d/1YuOUTbK7rged0gopQko5rdQuHKxiW9sv/view?usp=sharing)
 
-For the `vqa_img_feature_train.pickle`, the image features are provided by and downloaded from the original bottom-up attention' [repo](https://github.com/peteanderson80/bottom-up-attention#pretrained-features), or downloaded from the origin LXMERT' [repo](https://github.com/airsplay/lxmert#google-drive). We reorganized the storage structure of features as:
+For the `vqa_img_feature_train.pickle`, the image features are provided by and downloaded from the original bottom-up attention' [repo](https://github.com/peteanderson80/bottom-up-attention#pretrained-features),  then follow the [script](https://github.com/AndersonStra/MuKEA/blob/main/vqa_v2_pretrain/tsv2feature.py) to process the feature.
+
+```
+python2 tsv2feature.py
+python3 python2npy_to3.py
+```
+
+or downloaded from the origin LXMERT' [repo](https://github.com/airsplay/lxmert#google-drive) (the script to process the feature will be provided further). 
+
+We reorganized the storage structure of features as:
 
 ```
 vqa_img_feature_train.pickle{
@@ -41,7 +50,6 @@ vqa_img_feature_train.pickle{
 
 The pre-trained LXMERT model expects these spacial features to be normalized bounding boxes on a scale of 0 to 1
 
-We will provide the shell to help generate the pickle file from the original bottom-up attention file further.
 
 ### Pre-training on VQAv2
 ```
