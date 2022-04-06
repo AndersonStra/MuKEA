@@ -18,14 +18,13 @@ csv.field_size_limit(sys.maxsize)
 FIELDNAMES = ['image_id', 'image_h', 'image_w', 'objects_id', 'objects_conf', 'attrs_id', 'attrs_conf', 'num_boxes',
               'boxes', 'features']
 
-in_data = {}
-objects_data = {}
-
 def tsv2feature(split):
     if split == 'train':
         infile = '../data/mscoco_imgfeat/train2014_obj36.tsv'
     elif split == 'val':
         infile = '../data/mscoco_imgfeat/val2014_obj36.tsv'
+    in_data = {}
+    objects_data = {}
     with open(infile, "r") as tsv_in_file:
         reader = csv.DictReader(tsv_in_file, delimiter='\t', fieldnames=FIELDNAMES)
         for item in tqdm(reader):
