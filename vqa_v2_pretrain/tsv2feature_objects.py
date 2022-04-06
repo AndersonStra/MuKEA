@@ -17,7 +17,7 @@ csv.field_size_limit(sys.maxsize)
 
 FIELDNAMES = ['image_id', 'image_h', 'image_w', 'objects_id', 'objects_conf', 'attrs_id', 'attrs_conf', 'num_boxes',
               'boxes', 'features']
-infile = '../mscoco_imgfeat/train2014_obj36.tsv'
+infile = '../data/mscoco_imgfeat/train2014_obj36.tsv'
 
 in_data = {}
 objects_data = {}
