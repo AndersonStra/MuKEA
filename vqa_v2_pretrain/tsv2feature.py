@@ -15,7 +15,7 @@ from tqdm import tqdm
 csv.field_size_limit(sys.maxsize)
 
 FIELDNAMES = ['image_id', 'image_w', 'image_h', 'num_boxes', 'boxes', 'features']
-infile = '../train2014_36/train2014_resnet101_faster_rcnn_genome_36.tsv'
+infile = '../data/train2014_36/train2014_resnet101_faster_rcnn_genome_36.tsv'
 
 
 
