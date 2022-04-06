@@ -31,16 +31,7 @@ Download annotation from
 
 [google drive](https://drive.google.com/file/d/1YuOUTbK7rged0gopQko5rdQuHKxiW9sv/view?usp=sharing)
 
-For the `vqa_img_feature_train.pickle`, the image features are provided by and downloaded from the original bottom-up attention' [repo](https://github.com/peteanderson80/bottom-up-attention#pretrained-features),  then follow the [script](https://github.com/AndersonStra/MuKEA/blob/main/vqa_v2_pretrain/tsv2feature.py) to process the feature.
-
-```
-python2 tsv2feature.py
-python3 python2npy_to3.py
-```
-
-or downloaded from the origin LXMERT' [repo](https://github.com/airsplay/lxmert#google-drive) (the script to process the feature will be provided further). 
-
-We reorganized the storage structure of features as:
+We reorganized the storage structure of image features as:
 
 ```
 vqa_img_feature_train.pickle{
@@ -50,6 +41,18 @@ vqa_img_feature_train.pickle{
 
 The pre-trained LXMERT model expects these spacial features to be normalized bounding boxes on a scale of 0 to 1
 
+The image features are provided by and downloaded from the original bottom-up attention' [repo](https://github.com/peteanderson80/bottom-up-attention#pretrained-features),  then follow the [script](https://github.com/AndersonStra/MuKEA/blob/main/vqa_v2_pretrain/tsv2feature.py) to process the feature.
+
+```
+python tsv2feature.py
+```
+
+### Option 
+The image features with objects' label are provided by and downloaded from the origin LXMERT' [repo](https://github.com/airsplay/lxmert#google-drive), then follow the [script](https://github.com/AndersonStra/MuKEA/blob/main/vqa_v2_pretrain/tsv2feature_objects.py) to process the feature.
+
+```
+python tsv2feature_objects.py
+```
 
 ### Pre-training on VQAv2
 ```
