@@ -15,7 +15,7 @@ from tqdm import tqdm
 csv.field_size_limit(sys.maxsize)
 
 FIELDNAMES = ['image_id', 'image_w', 'image_h', 'num_boxes', 'boxes', 'features']
-infile = '/data2/yjgroup/dy/datasets/train2014_36/train2014_resnet101_faster_rcnn_genome_36.tsv'
+infile = '../train2014_36/train2014_resnet101_faster_rcnn_genome_36.tsv'
 
 
 
@@ -35,7 +35,7 @@ with open(infile, "r") as tsv_in_file:
         spatial_feature = np.concatenate((item['boxes'][:, :2] / w_h,
                                           item['boxes'][:, 2:] / w_h), axis=1)
         in_data[item['image_id']] = {'feats': item['features'], 'sp_feats': spatial_feature}
-with open('vqa_img_feature_train.pickle', 'wb') as f:
+with open('../data/vqa_img_feature_train.pickle', 'wb') as f:
     pickle.dump(in_data, f)
 
 
