@@ -28,8 +28,10 @@ with open(infile, "r") as tsv_in_file:
         item['image_h'] = int(item['image_h'])
         item['image_w'] = int(item['image_w'])
         item['num_boxes'] = int(item['num_boxes'])
+        item['objects_id'] = np.frombuffer(base64.b64decode(item['objects_id'].encode()), dtype=np.int64)\
+            .reshape((item['num_boxes'], -1))
         w_h = np.array([item['image_w'], item['image_h']])
-        for field in ['objects_id', 'objects_conf', 'boxes', 'features']:
+        for field in ['objects_conf', 'boxes', 'features']:
             item[field] = np.frombuffer(base64.b64decode(item[field].encode()),
                                         dtype=np.float32).reshape((item['num_boxes'], -1))
         spatial_feature = np.concatenate((item['boxes'][:, :2] / w_h,
