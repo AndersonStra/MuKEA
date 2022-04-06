@@ -17,7 +17,7 @@ csv.field_size_limit(sys.maxsize)
 
 FIELDNAMES = ['image_id', 'image_h', 'image_w', 'objects_id', 'objects_conf', 'attrs_id', 'attrs_conf', 'num_boxes',
               'boxes', 'features']
-infile = '/home/data/yjgroup/dy/py-bottom-up-attention/demo/data/lxmert/mscoco_imgfeat/train2014_obj36.tsv'
+infile = '../mscoco_imgfeat/train2014_obj36.tsv'
 
 in_data = {}
 objects_data = {}
@@ -37,7 +37,7 @@ with open(infile, "r") as tsv_in_file:
         in_data[item['image_id']] = {'feats': item['features'], 'sp_feats': spatial_feature}
         objects_data[item['image_id']] = {'objects': item['objects_id'].tolist(),
                                           'objects_conf': item['objects_conf'].tolist()}
-with open('vqa_img_feature_train.pickle', 'wb') as f:
+with open('../data/vqa_img_feature_train.pickle', 'wb') as f:
     pickle.dump(in_data, f)
-with open('vqa_img_object_train.json','w') as f:
+with open('../data/vqa_img_object_train.json','w') as f:
     json.dump(objects_data, f, indent=4)
