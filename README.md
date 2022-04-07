@@ -48,7 +48,7 @@ python tsv2feature.py
 ```
 
 ### Option 
-The image features with objects' label are provided by and downloaded from the origin LXMERT' [repo](https://github.com/airsplay/lxmert#google-drive), then follow the [script](https://github.com/AndersonStra/MuKEA/blob/main/vqa_v2_pretrain/tsv2feature_objects.py) to process the feature.
+The image features with **objects' label** are provided by and downloaded from the origin LXMERT' [repo](https://github.com/airsplay/lxmert#google-drive), then follow the [script](https://github.com/AndersonStra/MuKEA/blob/main/vqa_v2_pretrain/tsv2feature_objects.py) to process the feature.
 
 ```
 python tsv2feature_objects.py
