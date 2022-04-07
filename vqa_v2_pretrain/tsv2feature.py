@@ -49,6 +49,8 @@ def tsv2feature(split):
             else:
                 in_data_val[item['image_id']] = {'feats': item['features'], 'sp_feats': spatial_feature}
     print(len(in_data_train), len(in_data_val))
+    assert len(in_data_train) == 82783
+    assert len(in_data_val) == 40504
     if split == 'trainval':
         with open('../data/vqa_img_feature_train.pickle', 'wb') as f:
             pickle.dump(in_data_train, f)
