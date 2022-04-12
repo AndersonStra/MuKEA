@@ -56,12 +56,14 @@ python tsv2feature_objects.py
 
 ### Pre-training on VQAv2
 ```
-python train.py --embedding --model_dir model_save_dir --dataset okvqa/krvqa --pretrain --accumulate --validate
+python train.py --embedding --model_dir model_save_dir --dataset okvqa/krvqa/vqav2 --pretrain --accumulate --validate
 ```       
+
+note: --dataset vqav2 is only for testing on vqav2 dataset, for okvqa or krvqa, use --dataset okvqa/krvqa 
 
 ### Fine-tuning     
 ```
-python train.py --embedding --model_dir model_save_dir --dataset okvqa/krvqa --load_pthpath model_save_dir/checkpoint --accumulate --validate
+python train.py --embedding --model_dir model_save_dir --dataset okvqa/krvqa/vqav2 --load_pthpath model_save_dir/checkpoint --accumulate --validate
 ```
 
 ### w/o pre-training
