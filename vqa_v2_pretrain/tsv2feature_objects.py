@@ -28,7 +28,7 @@ def tsv2feature(split):
     with open(infile, "r") as tsv_in_file:
         reader = csv.DictReader(tsv_in_file, delimiter='\t', fieldnames=FIELDNAMES)
         for item in tqdm(reader):
-            item['image_id'] = str(item['image_id'])
+            item['image_id'] = str(int(item['image_id'].split('_')[-1]))
             item['image_h'] = int(item['image_h'])
             item['image_w'] = int(item['image_w'])
             item['num_boxes'] = int(item['num_boxes'])
