@@ -135,10 +135,10 @@ def train():
 
     optimizer = optim.AdamW(model.parameters(), lr=1e-4)
     
-    # '2' is Gpu NUMS 
-    total_steps = (len(train_dataset) // (args.batch_size / 2)) * args.num_epochs \
+    # warm up 
+    total_steps = (len(train_dataset) // (args.batch_size / torch.cuda.device_count())) * args.num_epochs \
         if len(train_dataset) % args.batch_size == 0 \
-        else (len(train_dataset) // (args.batch_size / 2) + 1) * args.num_epochs
+        else (len(train_dataset) // (args.batch_size / torch.cuda.device_count()) + 1) * args.num_epochs
     scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=0.01 * total_steps,
                                                 num_training_steps=total_steps)
     
