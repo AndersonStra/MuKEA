@@ -7,7 +7,7 @@ import torch.nn.functional as F
 from torch.nn import init
 from transformers import LxmertConfig, LxmertTokenizer, LxmertModel
 
-from attention import MultiHeadAttention, attention
+# from attention import MultiHeadAttention, attention
 from okvqa.gumbel_softmax import gumbel_softmax
 
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
