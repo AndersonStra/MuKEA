@@ -54,12 +54,19 @@ The image features with **objects' label** are provided by and downloaded from t
 python tsv2feature_objects.py
 ```
 
+### Image features for KRVQA
+The image features for KRVQA are generated based on the code in this [repo](https://github.com/violetteshev/bottom-up-features), and can be downloaded form 
+
+[google drive](https://drive.google.com/file/d/1YUhqLLXGouBsy6C-i8SIQ86VXIkclrm9/view?usp=sharing)
+
+unzip the file and put it under `/data/kr-vqa`
+
 ### Pre-training on VQAv2
 ```
 python train.py --embedding --model_dir model_save_dir --dataset okvqa/krvqa/vqav2 --pretrain --accumulate --validate
 ```       
 
-note: --dataset vqav2 is only for testing on vqav2 dataset, for okvqa or krvqa, use --dataset okvqa/krvqa 
+note: `--dataset vqav2` is only for testing on vqav2 dataset, for okvqa or krvqa, use `--dataset okvqa/krvqa`
 
 ### Fine-tuning     
 ```
