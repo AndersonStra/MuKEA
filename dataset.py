@@ -52,7 +52,7 @@ elif args.dataset == 'vqav2':
         train_row = json.load(f)
     with open('data/vqav2/vqav2_dic_all.pickle', 'rb') as f:
         a_dic = pickle.load(f)
-    with open('data/vqa_img_feature_val_all.pickle', 'rb') as f:
+    with open('data/vqa_img_feature_val.pickle', 'rb') as f:
         pretrain_feature_val = pickle.load(f)
     with open('data/vqa_val.json','r') as f:
         val_row = json.load(f)
