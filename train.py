@@ -173,7 +173,7 @@ def train():
         train_preds_trip_3 = []
         train_answers_trip = []
         for batch_data in tqdm(train_dataloader):
-            visual_faetures = torch.tensor(batch_data['img']).float().to(device)
+            visual_faetures = torch.from_numpy(np.array(batch_data['img'], dtype=float)).float().to(device)
             source_seq = tokenizer(batch_data['ques'], padding=True, return_tensors="pt",
                                    add_special_tokens=True)
             input_id = source_seq['input_ids'].to(device)
