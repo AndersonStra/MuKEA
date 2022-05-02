@@ -43,10 +43,10 @@ class ContrastiveLoss(nn.Module):
         d2 = diagonal.t().expand_as(scores)
 
         # compare every diagonal score to scores in its column
-        # caption retrieval
+        # h+r, t-
         cost_s = (self.margin + scores - d1).clamp(min=0)
         # compare every diagonal score to scores in its row
-        # image retrieval
+        # (h+r)-, t
         cost_im = (self.margin + scores - d2).clamp(min=0)
 
         # # clear diagonals
