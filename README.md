@@ -47,7 +47,7 @@ The image features are provided by and downloaded from the original bottom-up at
 python tsv2feature.py
 ```
 
-### Option 
+### Optional download link
 The image features with **objects' label** are provided by and downloaded from the origin LXMERT' [repo](https://github.com/airsplay/lxmert#google-drive), then follow the [script](https://github.com/AndersonStra/MuKEA/blob/main/vqa_v2_pretrain/tsv2feature_objects.py) to process the feature.
 
 ```
