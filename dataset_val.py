@@ -24,7 +24,7 @@ elif args.dataset == 'okvqa':
     with open('data/vqa_img_feature_val.pickle', 'rb') as f:
         pretrain_feature = pickle.load(f)
 elif args.dataset == 'vqav2':
-    with open('data/vqa_img_feature_test_dev.pickle', 'rb') as f:
+    with open('data/vqa_img_feature_test.pickle', 'rb') as f:
         pretrain_feature = pickle.load(f)
     with open('data/vqa_test.json','r') as f:
         val_row = json.load(f)
@@ -92,7 +92,6 @@ class KgDatasetVal(Dataset):
         qid = self.qids[index]
         question = self.questions[index]
         answer = self.answers[index]
-        # 取特征用点小方法
         image_feature = pretrain_feature[self.image_ids[index]]['feats']
         spatial_feature = pretrain_feature[self.image_ids[index]]['sp_feats']
         most_id = self.most_answer_ids[index]
