@@ -133,7 +133,6 @@ class KgDataset(Dataset):
         qid = self.qids[index]
         question = self.questions[index]
         answer = self.answers[index]
-        # 取特征用点小方法
         image_feature = pretrain_feature[self.image_ids[index]]['feats']
         spatial_feature = pretrain_feature[self.image_ids[index]]['sp_feats']
         most_id = self.most_answer_ids[index]
@@ -173,7 +172,6 @@ class PretrainDataset(Dataset):
         question = self.questions[index]
         answer = self.answers[index]
 
-        #取特征用点小方法
         image_feature = pretrain_feature[self.image_ids[index]]['feats']
         spatial_feature = pretrain_feature[self.image_ids[index]]['sp_feats']
 
