@@ -63,10 +63,10 @@ unzip the file and put it under `/data/kr-vqa`
 
 ### Pre-training on VQAv2
 ```
-python train.py --embedding --model_dir model_save_dir --dataset okvqa/krvqa/vqav2 --pretrain --accumulate --validate
+python train.py --embedding --model_dir model_save_dir --dataset finetune-dataset/okvqa/krvqa/vqav2 --pretrain --accumulate --validate
 ```       
 
-note: `--dataset vqav2` is only for testing on vqav2 dataset, for okvqa or krvqa, use `--dataset okvqa/krvqa`.
+note: `--dataset` parameter is to set the dataset for finetune
 
 
 The default learning rate is set to 1e-4 which will lead to faster convergence. If the training is unstable, please set the learning rate to 1e-5 manually in the pre-training stage.
