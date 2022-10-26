@@ -216,11 +216,11 @@ def train():
                     most_i = most[:,i,:]
                     loss_mse = criterion_mse(anchor, most_i)
                     loss_graph = criterion_graph(anchor, most_i)
-                    loss = loss + loss_mse + loss_graph
+                    loss = loss + loss_mse + loss_graph + loss_cl
             else:
                 loss_mse = criterion_mse(anchor, most)
                 loss_graph = criterion_graph(anchor, most)
-                loss = loss_mse + loss_graph
+                loss = loss_mse + loss_graph + loss_cl
 
             loss_stat = loss.item()
             loss.backward()
