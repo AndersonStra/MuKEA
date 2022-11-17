@@ -125,7 +125,7 @@ def test():
 
                 anchor = model(input_id, attention_mask, token_type_ids, visual_faetures, spatial_feature)
 
-                # 可视化分析代码
+               
                 # id = batch_data['id']
                 # ids.extend(id)
                 # target = target.squeeze()
@@ -150,7 +150,7 @@ def test():
             epoch, acc_1_trip))
         # np.save('best_relation_embedding.npy', embeddings)
 
-        # 可视化分析代码
+        
         # gumbel_dic = {}
         # for i in zip(ids, gumbel_ids):
         #     gumbel_dic[i[0]] = i[1]
