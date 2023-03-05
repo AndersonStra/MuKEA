@@ -83,7 +83,7 @@ python train.py --embedding --model_dir model_save_dir --dataset okvqa/krvqa --v
 
 ### Models
 
-[OKVQA w/ pretrain](https://drive.google.com/file/d/1YUhqLLXGouBsy6C-i8SIQ86VXIkclrm9/view?usp=sharing)
+[OKVQA w/ pretrain](https://drive.google.com/file/d/1BhMvkp7ThOIG00u8wBqCFy0e4n2l4gom/view?usp=share_link)
 
 ### Bibtex
 ```
