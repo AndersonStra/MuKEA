@@ -81,6 +81,10 @@ python train.py --embedding --model_dir model_save_dir --dataset okvqa/krvqa/vqa
 python train.py --embedding --model_dir model_save_dir --dataset okvqa/krvqa --validate
 ```
 
+### Models
+
+[OKVQA w/ pretrain](https://drive.google.com/file/d/1YUhqLLXGouBsy6C-i8SIQ86VXIkclrm9/view?usp=sharing)
+
 ### Bibtex
 ```
 @inproceedings{Ding2022mukea,
